@@ -11,7 +11,6 @@ export type SectionModels =
     | CtaSection
     | DividerSection
     | FeaturedItemsSection
-    | FeaturedPostsSection
     | FeaturedProjectsSection
     | HeroSection
     | LabelsSection
@@ -34,7 +33,6 @@ export type ContentObject =
     | EmailFormControl
     | FeaturedItem
     | FeaturedItemsSection
-    | FeaturedPostsSection
     | FeaturedProjectsSection
     | Footer
     | FormBlock
@@ -79,7 +77,6 @@ export type ContentObjectType =
     | 'EmailFormControl'
     | 'FeaturedItem'
     | 'FeaturedItemsSection'
-    | 'FeaturedPostsSection'
     | 'FeaturedProjectsSection'
     | 'Footer'
     | 'FormBlock'
@@ -258,23 +255,6 @@ export type FeaturedItemsSection = BaseContentObject & {
     spacingX?: number;
     spacingY?: number;
     elementId?: string;
-    styles?: any;
-};
-
-export type FeaturedPostsSection = BaseContentObject & {
-    type: 'FeaturedPostsSection';
-    title?: string;
-    subtitle?: string;
-    actions?: (Button | Link)[];
-    posts?: PostLayout[];
-    colors?: 'colors-a' | 'colors-b' | 'colors-c' | 'colors-d' | 'colors-e' | 'colors-f';
-    variant: 'variant-a' | 'variant-b' | 'variant-c' | 'variant-d';
-    elementId?: string;
-    showDate?: boolean;
-    showAuthor?: boolean;
-    showExcerpt?: boolean;
-    showFeaturedImage?: boolean;
-    showReadMoreLink?: boolean;
     styles?: any;
 };
 

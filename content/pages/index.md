@@ -1,25 +1,23 @@
 ---
 type: PageLayout
-title: Home
+title: ./watch
 colors: colors-a
 backgroundImage:
   type: BackgroundImage
-  url: /images/bg1.jpg
+  url: /images/circuit_bg.jpg
   backgroundSize: cover
   backgroundPosition: center
   backgroundRepeat: no-repeat
-  opacity: 75
+  opacity: 30
 sections:
   - elementId: ''
     colors: colors-f
     backgroundSize: full
     title: >-
-      I’m a developer, digital artist, consultant and a bunch of other
-      impressive titles and buzz words.
+      ./watch
     subtitle: >-
-      This is my info—I’m sharing it all this with ya’ll to impress you with all
-      the hard work I’ve done in the past few years. Once you’re impressed, you
-      can continue to scroll down to see more details and credentials about me.
+      Many quartz watches do their best to hide away any electronic components from view. 
+      The design concept for this watch was to embrace those digital components instead, taking inspiration from command-line interfaces and other computer hardware.
     styles:
       self:
         height: auto
@@ -30,127 +28,114 @@ sections:
           - ml-0
           - mr-0
         padding:
-          - pt-36
-          - pb-48
+          - pt-12
+          - pb-6
           - pl-4
           - pr-4
         flexDirection: row-reverse
         textAlign: left
     type: HeroSection
     actions: []
+  - type: HeroSection
+    title: ''
+    subtitle: ''
+    media:
+      type: ImageBlock
+      url: /images/PropShot.jpg
+      altText: Watch Prop Shot
+      caption: ''
+      elementId: 'watch-hero-image'
+      className: 'max-w-md w-full h-auto rounded-4xl mx-auto'
+    styles:
+      self:
+        height: auto
+        width: narrow
+        maxWidth: 500px
+        padding:
+          - pt-0
+          - pb-6
+          - pl-75
+          - pr-75
+        margin:
+          - mt-0
+          - mb-0
+        flexDirection: col
+        textAlign: center
+  - type: DividerSection
+    elementId: 'divider-propshot-featured'
+    styles:
+      self:
+        width: wide
+        borderStyle: solid
+        borderWidth: 1
+        padding:
+          - pt-4
+          - pb-4
+          - pl-0
+          - pr-0
+        margin:
+          - mt-0
+          - mb-0
   - colors: colors-f
     type: FeaturedProjectsSection
     elementId: ''
-    actions:
-      - type: Link
-        label: See all projects
-        url: /projects
-    showDate: false
     showDescription: true
     showFeaturedImage: true
     showReadMoreLink: true
     variant: variant-b
     projects:
-      - content/pages/projects/project-two.md
-      - content/pages/projects/project-three.md
-      - content/pages/projects/project-one.md
+      - content/pages/electronics.md
+      - content/pages/hardware.md
+      - content/pages/software.md
     styles:
       self:
         height: auto
         width: wide
         padding:
-          - pt-24
-          - pb-24
+          - pt-12
+          - pb-12
           - pl-4
           - pr-4
         textAlign: left
-    subtitle: Projects
-  - type: FeaturedPostsSection
-    elementId: ''
-    colors: colors-f
-    variant: variant-d
-    subtitle: Featured Posts
-    showFeaturedImage: false
-    actions:
-      - type: Link
-        label: See all posts
-        url: /blog
-    posts:
-      - content/pages/blog/post-six.md
-      - content/pages/blog/post-four.md
-      - content/pages/blog/post-three.md
-    showDate: true
-    showExcerpt: true
-    showReadMoreLink: true
+  - type: DividerSection
+    elementId: 'divider-propshot-featured'
     styles:
       self:
-        height: auto
-        width: narrow
+        width: wide
+        borderStyle: solid
+        borderWidth: 1
         padding:
-          - pt-28
-          - pb-48
-          - pl-4
-          - pr-4
-        textAlign: left
-  - type: ContactSection
-    colors: colors-f
-    backgroundSize: full
-    title: "Got an interesting project? Tell me more...\U0001F4AC"
-    form:
-      type: FormBlock
-      elementId: sign-up-form
-      fields:
-        - name: firstName
-          label: First Name
-          hideLabel: true
-          placeholder: First Name
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: lastName
-          label: Last Name
-          hideLabel: true
-          placeholder: Last Name
-          isRequired: false
-          width: 1/2
-          type: TextFormControl
-        - name: email
-          label: Email
-          hideLabel: true
-          placeholder: Email
-          isRequired: true
-          width: 1/2
-          type: EmailFormControl
-        - name: address
-          label: Address
-          hideLabel: true
-          placeholder: Address
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: updatesConsent
-          label: Sign me up to recieve updates
-          isRequired: false
-          width: full
-          type: CheckboxFormControl
-      submitLabel: "Submit \U0001F680"
-      styles:
-        self:
-          textAlign: center
-    styles:
-      self:
-        height: auto
-        width: narrow
+          - pt-4
+          - pb-4
+          - pl-0
+          - pr-0
         margin:
           - mt-0
           - mb-0
-          - ml-0
-          - mr-0
+  - type: CtaSection
+    colors: colors-f
+    elementId: github-button
+    actions:
+      - type: Button
+        label: GitHub ⌚︎
+        url: https://github.com/zsteig/.watch
+        style: primary
+        elementId: github-link
+    styles:
+      self:
+        height: auto
+        width: full
+        margin:
+          - mt-0
+          - mb-0
         padding:
-          - pt-24
-          - pb-24
-          - pr-4
+          - pt-6
+          - pb-6
           - pl-4
-        flexDirection: row
-        textAlign: left
+          - pr-4
+        alignItems: center
+        justifyContent: center
+        flexDirection: column
+        display: flex
+        textAlign: center
 ---

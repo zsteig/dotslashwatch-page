@@ -48,9 +48,9 @@ export const FeaturedProjectsSectionModel: Model = {
                 models: ['ProjectLayout']
             },
             default: [
-                'content/pages/projects/project-three.md',
-                'content/pages/projects/project-two.md',
-                'content/pages/projects/project-one.md'
+                'content/pages/projects/electronics.md',
+                'content/pages/projects/hardware.md',
+                'content/pages/projects/software.md'
             ]
         },
         ...colorFields,

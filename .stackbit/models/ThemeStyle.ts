@@ -95,7 +95,7 @@ export const ThemeStyleModel: Model = {
                     value: '"Azeret Mono", monospace'
                 }
             ],
-            default: '"DM Mono", monospace',
+            default: '"Ubuntu Mono", monospace',
             required: true
         },
         {

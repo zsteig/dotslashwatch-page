@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import dayjs from 'dayjs';
 
 import { Action, Link } from '@/components/atoms';
 import ImageBlock from '@/components/molecules/ImageBlock';
@@ -54,7 +53,6 @@ function ProjectGrid(props) {
     const {
         variant,
         projects = [],
-        showDate,
         showDescription,
         showFeaturedImage,
         showReadMoreLink,
@@ -76,20 +74,16 @@ function ProjectGrid(props) {
             })}
         >
             {projects.map((project, index) => (
-                <Link key={index} href={project} className="block max-w-3xl pb-10 border-b border-current group">
+                <Link key={index} href={project} className="block max-w-3xl group">
                     {showFeaturedImage && project.featuredImage && (
                         <div className="w-full mb-6 overflow-hidden aspect-3/2">
                             <ImageBlock
                                 {...project.featuredImage}
-                                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-98 rounded-4xl"
                             />
                         </div>
                     )}
-                    {showDate && project.date && (
-                        <div className="mb-3">
-                            <ProjectDate date={project.date} />
-                        </div>
-                    )}
+
                     <TitleTag className="text-3xl sm:text-4xl">{project.title}</TitleTag>
                     {showDescription && project.description && <p className="mt-5 text-lg">{project.description}</p>}
                     {showReadMoreLink && (
@@ -108,7 +102,6 @@ function ProjectGrid(props) {
 function ProjectList(props) {
     const {
         projects = [],
-        showDate,
         showDescription,
         showFeaturedImage,
         showReadMoreLink,
@@ -139,11 +132,6 @@ function ProjectList(props) {
                             </div>
                         )}
                         <div className="md:grow">
-                            {showDate && project.date && (
-                                <div className="mb-3">
-                                    <ProjectDate date={project.date} />
-                                </div>
-                            )}
                             <TitleTag className="text-3xl sm:text-4xl">{project.title}</TitleTag>
                             {showDescription && project.description && (
                                 <p className="mt-5 text-lg">{project.description}</p>
@@ -161,10 +149,4 @@ function ProjectList(props) {
             ))}
         </div>
     );
-}
-
-function ProjectDate({ date }) {
-    const dateTimeAttr = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
-    const formattedDate = dayjs(date).format('YYYY-MM-DD');
-    return <time dateTime={dateTimeAttr}>{formattedDate}</time>;
 }

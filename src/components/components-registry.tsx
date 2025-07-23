@@ -1,7 +1,7 @@
+import { ContentObject, GlobalProps } from '@/types';
 import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';
 import { Annotated } from './Annotated';
-import { ContentObject, GlobalProps } from '@/types';
 
 /**
  * Since the layout of pages is dynamic (e.g. a page can have sections of different types, sections can have blocks of various types, etc.),
@@ -46,13 +46,11 @@ export const DynamicComponent: React.FC<DynamicComponentProps> = (props) => {
 
 const components = {
     CheckboxFormControl: dynamic(() => import('./molecules/FormBlock/CheckboxFormControl')),
-    ContactSection: dynamic(() => import('./sections/ContactSection')),
     CtaSection: dynamic(() => import('./sections/CtaSection')),
     DividerSection: dynamic(() => import('./sections/DividerSection')),
     EmailFormControl: dynamic(() => import('./molecules/FormBlock/EmailFormControl')),
     FeaturedItem: dynamic(() => import('./sections/FeaturedItemsSection/FeaturedItem')),
     FeaturedItemsSection: dynamic(() => import('./sections/FeaturedItemsSection')),
-    FeaturedPostsSection: dynamic(() => import('./sections/FeaturedPostsSection')),
     FeaturedProjectsSection: dynamic(() => import('./sections/FeaturedProjectsSection')),
     FormBlock: dynamic(() => import('./molecules/FormBlock')),
     HeroSection: dynamic(() => import('./sections/HeroSection')),

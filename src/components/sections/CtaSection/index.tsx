@@ -13,14 +13,14 @@ export default function CtaSection(props) {
         <Section elementId={elementId} colors={colors} backgroundSize={backgroundSize} styles={styles.self}>
             <div
                 className={classNames(
-                    'flex flex-col gap-8',
-                    styles.self?.flexDirection !== 'col' && 'lg:flex-row lg:items-center lg:justify-between'
+                    'flex flex-row gap-1 max-w-xl mx-auto',
+                    styles.self?.flexDirection !== 'col' && 'lg:flex-row lg:items-center lg:justify-center'
                 )}
             >
                 {(title || text) && (
-                    <div className="w-full space-y-4 lg:grow">
+                    <div className="w-screen space-y-2 lg:grow">
                         {title && (
-                            <h2 className={classNames('text-4xl sm:text-5xl', mapStyles({ textAlign: sectionAlign }))}>
+                            <h2 className={classNames('text-2xl sm:text-3xl my-auto', mapStyles({ textAlign: sectionAlign }))}>
                                 {title}
                             </h2>
                         )}

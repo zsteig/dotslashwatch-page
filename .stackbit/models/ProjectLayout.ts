@@ -5,7 +5,7 @@ export const ProjectLayoutModel: Model = {
     type: 'page',
     name: 'ProjectLayout',
     label: 'Project page',
-    urlPath: '/projects/{slug}',
+    urlPath: '/{slug}',
     filePath: 'content/pages/projects/{slug}.md',
     thumbnail: 'https://assets.stackbit.com/components/models/thumbnails/default.png',
     fieldGroups: [...seoFieldsGroup, ...styleFieldsGroup],

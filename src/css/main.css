@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap')
-layer(base);
-
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -34,7 +31,6 @@ layer(base);
         @apply break-words;
         line-height: 1.15;
         font-weight: var(--theme-heading-weight);
-        text-transform: var(--theme-heading-case);
     }
 
     b,

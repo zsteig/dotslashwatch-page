@@ -15,8 +15,8 @@ export default function Header(props) {
         <header className={classNames(isSticky ? 'sticky top-0 z-10' : 'relative', 'border-b border-current')}>
             <div
                 className={classNames({
-                    'max-w-7xl mx-auto xl:border-x xl:border-current': headerWidth === 'narrow',
-                    'max-w-8xl mx-auto 2xl:border-x 2xl:border-current': headerWidth === 'wide',
+                    'max-w-7xl mx-auto': headerWidth === 'narrow',
+                    'max-w-8xl mx-auto': headerWidth === 'wide',
                     'w-full': headerWidth === 'full'
                 })}
             >
@@ -47,12 +47,12 @@ function HeaderVariantA(props) {
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
             {primaryLinks.length > 0 && (
-                <ul className="hidden border-r border-current divide-x divide-current lg:flex">
+                <ul className="hidden lg:flex">
                     <ListOfLinks links={primaryLinks} inMobileMenu={false} />
                 </ul>
             )}
             {socialLinks.length > 0 && (
-                <ul className="hidden ml-auto border-l border-current lg:flex">
+                <ul className="hidden ml-auto lg:flex">
                     <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
                 </ul>
             )}
@@ -67,13 +67,13 @@ function HeaderVariantB(props) {
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
             {primaryLinks.length > 0 && (
-                <ul className="hidden ml-auto border-l border-current divide-x divide-current lg:flex">
+                <ul className="hidden ml-auto lg:flex">
                     <ListOfLinks links={primaryLinks} inMobileMenu={false} />
                 </ul>
             )}
             {socialLinks.length > 0 && (
                 <ul
-                    className={classNames('hidden border-l border-current lg:flex', {
+                    className={classNames('hidden lg:flex', {
                         'ml-auto': primaryLinks.length === 0
                     })}
                 >
@@ -91,13 +91,13 @@ function HeaderVariantC(props) {
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
             {socialLinks.length > 0 && (
-                <ul className="hidden ml-auto border-l border-current lg:flex">
+                <ul className="hidden ml-auto lg:flex">
                     <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
                 </ul>
             )}
             {primaryLinks.length > 0 && (
                 <ul
-                    className={classNames('hidden border-l border-current divide-x divide-current lg:flex', {
+                    className={classNames('hidden lg:flex', {
                         'ml-auto': primaryLinks.length === 0
                     })}
                 >
