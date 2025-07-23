@@ -4,8 +4,8 @@
     "header": {
         "type": "Header",
         "headerVariant": "variant-c",
-        "isSticky": true,
-        "title": "Home 🏠︎",
+        "isSticky": false,
+        "title": "Home",
         "isTitleVisible": true,
         "styles": {
             "self": {

@@ -54,8 +54,8 @@ sections:
         padding:
           - pt-0
           - pb-6
-          - pl-75
-          - pr-75
+          - pl-6
+          - pr-6
         margin:
           - mt-0
           - mb-0
