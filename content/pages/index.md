@@ -4,7 +4,7 @@ title: ./watch
 colors: colors-a
 backgroundImage:
   type: BackgroundImage
-  url: /images/circuit_bg.jpg
+  url: /images/circuit_bg.avif
   backgroundSize: cover
   backgroundPosition: center
   backgroundRepeat: no-repeat
@@ -17,7 +17,7 @@ sections:
       ./watch
     subtitle: >-
       Many quartz watches do their best to hide away any electronic components from view. 
-      The design concept for this watch was to embrace those digital components instead, taking inspiration from command-line interfaces and other computer hardware.
+      The design concept for this watch was to embrace those digital components instead, taking inspiration from command-line interfaces and computer hardware.
     styles:
       self:
         height: auto
@@ -41,14 +41,15 @@ sections:
     subtitle: ''
     media:
       type: ImageBlock
-      url: /images/PropShot.jpg
+      url: /images/PropShot_compressed.avif
       altText: Watch Prop Shot
       caption: ''
       elementId: 'watch-hero-image'
       className: 'max-w-md w-full h-auto rounded-4xl mx-auto'
     styles:
       self:
-        height: auto
+        height: full
+        maxHeight: 300px
         width: narrow
         maxWidth: 500px
         padding:
@@ -65,6 +66,7 @@ sections:
     elementId: 'divider-propshot-featured'
     styles:
       self:
+        height: auto
         width: wide
         borderStyle: solid
         borderWidth: 1
@@ -101,6 +103,7 @@ sections:
     elementId: 'divider-propshot-featured'
     styles:
       self:
+        height: full
         width: wide
         borderStyle: solid
         borderWidth: 1
@@ -123,7 +126,7 @@ sections:
         elementId: github-link
     styles:
       self:
-        height: auto
+        height: full
         width: full
         margin:
           - mt-0

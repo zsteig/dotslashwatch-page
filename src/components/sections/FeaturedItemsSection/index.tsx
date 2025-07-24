@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 
-import Action from '@/components/atoms/Action';
 import { mapStylesToClassNames as mapStyles } from '@/utils/map-styles-to-class-names';
 import Section from '../Section';
 import FeaturedItem from './FeaturedItem';
@@ -55,9 +54,6 @@ export default function FeaturedItemsSection(props) {
                         'justify-end': sectionAlign === 'right'
                     })}
                 >
-                    {actions.map((action, index) => (
-                        <Action key={index} {...action} />
-                    ))}
                 </div>
             )}
         </Section>

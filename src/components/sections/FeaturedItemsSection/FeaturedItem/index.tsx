@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 
 import { Annotated } from '@/components/Annotated';
-import Action from '@/components/atoms/Action';
 import ImageBlock from '@/components/molecules/ImageBlock';
 import { mapStylesToClassNames as mapStyles } from '@/utils/map-styles-to-class-names';
 
@@ -45,9 +44,6 @@ export default function FeaturedItem(props) {
                             'mt-4': title || subtitle || text
                         })}
                     >
-                        {actions.map((action, index) => (
-                            <Action key={index} {...action} />
-                        ))}
                     </div>
                 )}
             </article>

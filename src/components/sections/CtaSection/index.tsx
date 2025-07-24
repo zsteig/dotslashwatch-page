@@ -1,8 +1,6 @@
 import classNames from 'classnames';
-import Markdown from 'markdown-to-jsx';
 
 import { Action } from '@/components/atoms';
-import { mapStylesToClassNames as mapStyles } from '@/utils/map-styles-to-class-names';
 import Section from '../Section';
 
 export default function CtaSection(props) {
@@ -17,26 +15,6 @@ export default function CtaSection(props) {
                     styles.self?.flexDirection !== 'col' && 'lg:flex-row lg:items-center lg:justify-center'
                 )}
             >
-                {(title || text) && (
-                    <div className="w-screen space-y-2 lg:grow">
-                        {title && (
-                            <h2 className={classNames('text-2xl sm:text-3xl my-auto', mapStyles({ textAlign: sectionAlign }))}>
-                                {title}
-                            </h2>
-                        )}
-                        {text && (
-                            <Markdown
-                                options={{ forceBlock: true, forceWrapper: true }}
-                                className={classNames(
-                                    'max-w-none prose sm:prose-lg',
-                                    mapStyles({ textAlign: sectionAlign })
-                                )}
-                            >
-                                {text}
-                            </Markdown>
-                        )}
-                    </div>
-                )}
                 {actions.length > 0 && (
                     <div className={classNames('w-full', { 'lg:w-auto': sectionFlexDirection === 'row' })}>
                         <div

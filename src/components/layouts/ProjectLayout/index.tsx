@@ -2,10 +2,7 @@ import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 import * as React from 'react';
 
-import { Annotated } from '@/components/Annotated';
-import Link from '@/components/atoms/Link';
 import { DynamicComponent } from '@/components/components-registry';
-import ImageBlock from '@/components/molecules/ImageBlock';
 import { PageComponentProps, ProjectLayout } from '@/types';
 import HighlightedPreBlock from '@/utils/highlighted-markdown';
 import BaseLayout from '../BaseLayout';
@@ -72,24 +69,4 @@ export default Component;
 
 function ProjectMedia({ media }) {
     return <DynamicComponent {...media} className={classNames('rounded-4xl', { 'w-full': media.type === 'ImageBlock' })} />;
-}
-
-function ProjectNavItem({ project, className }) {
-    return (
-        <Annotated content={project}>
-            <Link className={classNames('group flex flex-col gap-6 items-start', className)} href={project}>
-                {project.featuredImage && (
-                    <div className="w-2x1 rounded-4xl overflow-hidden aspect-3/2">
-                        <ImageBlock
-                            {...project.featuredImage}
-                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                        />
-                    </div>
-                )}
-                <span className="text-lg leading-tight uppercase transition bottom-shadow-1 group-hover:bottom-shadow-5">
-                    {project.title}
-                </span>
-            </Link>
-        </Annotated>
-    );
 }

@@ -45,32 +45,21 @@ export const DynamicComponent: React.FC<DynamicComponentProps> = (props) => {
 };
 
 const components = {
-    CheckboxFormControl: dynamic(() => import('./molecules/FormBlock/CheckboxFormControl')),
     CtaSection: dynamic(() => import('./sections/CtaSection')),
     DividerSection: dynamic(() => import('./sections/DividerSection')),
-    EmailFormControl: dynamic(() => import('./molecules/FormBlock/EmailFormControl')),
     FeaturedItem: dynamic(() => import('./sections/FeaturedItemsSection/FeaturedItem')),
     FeaturedItemsSection: dynamic(() => import('./sections/FeaturedItemsSection')),
     FeaturedProjectsSection: dynamic(() => import('./sections/FeaturedProjectsSection')),
-    FormBlock: dynamic(() => import('./molecules/FormBlock')),
     HeroSection: dynamic(() => import('./sections/HeroSection')),
     ImageBlock: dynamic(() => import('./molecules/ImageBlock')),
     MediaGallerySection: dynamic(() => import('./sections/MediaGallerySection')),
-    PostFeedSection: dynamic(() => import('./sections/PostFeedSection')),
     ProjectFeedSection: dynamic(() => import('./sections/ProjectFeedSection')),
-    RecentPostsSection: dynamic(() => import('./sections/RecentPostsSection')),
     RecentProjectsSection: dynamic(() => import('./sections/RecentProjectsSection')),
     QuoteSection: dynamic(() => import('./sections/QuoteSection')),
-    SelectFormControl: dynamic(() => import('./molecules/FormBlock/SelectFormControl')),
     LabelsSection: dynamic(() => import('./sections/LabelsSection')),
     TestimonialsSection: dynamic(() => import('./sections/TestimonialsSection')),
-    TextareaFormControl: dynamic(() => import('./molecules/FormBlock/TextareaFormControl')),
-    TextFormControl: dynamic(() => import('./molecules/FormBlock/TextFormControl')),
     TextSection: dynamic(() => import('./sections/TextSection')),
-    VideoBlock: dynamic(() => import('./molecules/VideoBlock')),
     PageLayout: dynamic(() => import('./layouts/PageLayout')),
-    PostLayout: dynamic(() => import('./layouts/PostLayout')),
-    PostFeedLayout: dynamic(() => import('./layouts/PostFeedLayout')),
     ProjectLayout: dynamic(() => import('./layouts/ProjectLayout')),
     ProjectFeedLayout: dynamic(() => import('./layouts/ProjectFeedLayout'))
 };

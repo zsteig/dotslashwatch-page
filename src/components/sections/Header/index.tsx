@@ -2,10 +2,8 @@ import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { Link, Social } from '@/components/atoms';
+import { Link } from '@/components/atoms';
 import ImageBlock from '@/components/molecules/ImageBlock';
-import CloseIcon from '@/components/svgs/close';
-import MenuIcon from '@/components/svgs/menu';
 import HeaderLink from './HeaderLink';
 
 export default function Header(props) {
@@ -32,57 +30,9 @@ export default function Header(props) {
 function HeaderVariants(props) {
     const { headerVariant = 'variant-a', ...rest } = props;
     switch (headerVariant) {
-        case 'variant-b':
-            return <HeaderVariantB {...rest} />;
-        case 'variant-c':
-            return <HeaderVariantC {...rest} />;
         default:
-            return <HeaderVariantA {...rest} />;
+            return <HeaderVariantC {...rest} />;
     }
-}
-
-function HeaderVariantA(props) {
-    const { primaryLinks = [], socialLinks = [], ...logoProps } = props;
-    return (
-        <div className="relative flex items-stretch">
-            <SiteLogoLink {...logoProps} />
-            {primaryLinks.length > 0 && (
-                <ul className="hidden lg:flex">
-                    <ListOfLinks links={primaryLinks} inMobileMenu={false} />
-                </ul>
-            )}
-            {socialLinks.length > 0 && (
-                <ul className="hidden ml-auto lg:flex">
-                    <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
-                </ul>
-            )}
-            {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
-        </div>
-    );
-}
-
-function HeaderVariantB(props) {
-    const { primaryLinks = [], socialLinks = [], ...logoProps } = props;
-    return (
-        <div className="relative flex items-stretch">
-            <SiteLogoLink {...logoProps} />
-            {primaryLinks.length > 0 && (
-                <ul className="hidden ml-auto lg:flex">
-                    <ListOfLinks links={primaryLinks} inMobileMenu={false} />
-                </ul>
-            )}
-            {socialLinks.length > 0 && (
-                <ul
-                    className={classNames('hidden lg:flex', {
-                        'ml-auto': primaryLinks.length === 0
-                    })}
-                >
-                    <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
-                </ul>
-            )}
-            {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
-        </div>
-    );
 }
 
 function HeaderVariantC(props) {
@@ -90,11 +40,6 @@ function HeaderVariantC(props) {
     return (
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
-            {socialLinks.length > 0 && (
-                <ul className="hidden ml-auto lg:flex">
-                    <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
-                </ul>
-            )}
             {primaryLinks.length > 0 && (
                 <ul
                     className={classNames('hidden lg:flex', {
@@ -132,7 +77,6 @@ function MobileMenu(props) {
                 className="h-10 min-h-full p-4 text-lg border-l border-current focus:outline-hidden"
                 onClick={() => setIsMenuOpen(true)}
             >
-                <MenuIcon className="fill-current w-icon h-icon" />
             </button>
             <div className={classNames('fixed inset-0 z-20 overflow-y-auto bg-main', isMenuOpen ? 'block' : 'hidden')}>
                 <div className="flex flex-col min-h-full">
@@ -144,24 +88,9 @@ function MobileMenu(props) {
                                 className="h-10 min-h-full p-4 text-lg focus:outline-hidden"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                <CloseIcon className="fill-current w-icon h-icon" />
                             </button>
                         </div>
                     </div>
-                    {(primaryLinks.length > 0 || socialLinks.length > 0) && (
-                        <div className="flex flex-col items-center justify-center px-4 py-20 space-y-12 grow">
-                            {primaryLinks.length > 0 && (
-                                <ul className="space-y-6">
-                                    <ListOfLinks links={primaryLinks} inMobileMenu={true} />
-                                </ul>
-                            )}
-                            {socialLinks.length > 0 && (
-                                <ul className="flex flex-wrap justify-center border border-current divide-x divide-current">
-                                    <ListOfSocialLinks links={socialLinks} inMobileMenu={true} />
-                                </ul>
-                            )}
-                        </div>
-                    )}
                 </div>
             </div>
         </div>
@@ -189,14 +118,6 @@ function ListOfLinks({ links, inMobileMenu }) {
                 {...link}
                 className={classNames(inMobileMenu ? 'text-xl bottom-shadow-1 hover:bottom-shadow-5' : 'p-4 link-fill')}
             />
-        </li>
-    ));
-}
-
-function ListOfSocialLinks({ links, inMobileMenu = false }) {
-    return links.map((link, index) => (
-        <li key={index} className="inline-flex items-stretch">
-            <Social {...link} className={classNames('text-lg link-fill', inMobileMenu ? 'p-5' : 'p-4')} />
         </li>
     ));
 }
