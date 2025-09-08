@@ -5,9 +5,9 @@ import { DynamicComponent } from '@/components/components-registry';
 import { PageComponentProps } from '@/types';
 import { allContent } from '@/utils/content';
 import {
-    seoGenerateMetaDescription,
-    seoGenerateMetaTags,
-    seoGenerateTitle,
+  seoGenerateMetaDescription,
+  seoGenerateMetaTags,
+  seoGenerateTitle,
 } from '@/utils/seo-utils';
 import { resolveStaticProps } from '@/utils/static-props-resolvers';
 
@@ -45,7 +45,6 @@ const Page: React.FC<PageComponentProps> = (props) => {
         {site.favicon && (
           <>
             <link rel="icon" href={site.favicon} />
-            <link rel="preload" as="image" href={site.favicon} />
           </>
         )}
       </Head>

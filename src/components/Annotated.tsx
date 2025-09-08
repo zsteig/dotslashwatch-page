@@ -8,9 +8,9 @@
  * Annotating primitive fields this way is more intrusive in code, and requires manually entering a field path,
  * but unlocks not just direct selection of fields but also field-level styling controls.
  */
-import { PropsWithChildren } from 'react';
-import { isDev } from '@/utils/common';
 import { HasAnnotation, fieldPathAttr, objectIdAttr } from '@/types';
+import { isDev } from '@/utils/common';
+import { PropsWithChildren } from 'react';
 
 type AnnotatedProps = PropsWithChildren & {
     content: HasAnnotation;
@@ -33,7 +33,6 @@ export const Annotated: React.FC<AnnotatedProps> = (props) => {
     if (annotation) {
         return <AnnotatedWrapperTag annotation={annotation}>{props.children}</AnnotatedWrapperTag>;
     } else {
-        console.warn('Annotated: no annotation in content. Props:', props);
         return baseResult;
     }
 };

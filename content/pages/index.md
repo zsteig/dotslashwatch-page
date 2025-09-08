@@ -87,8 +87,8 @@ sections:
     variant: variant-b
     projects:
       - content/pages/electronics.md
-      - content/pages/hardware.md
       - content/pages/software.md
+      - content/pages/hardware.md
     styles:
       self:
         height: auto

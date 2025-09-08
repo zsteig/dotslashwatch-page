@@ -3,15 +3,12 @@ import Markdown from 'markdown-to-jsx';
 import * as React from 'react';
 
 import { DynamicComponent } from '@/components/components-registry';
+import ImageBlock from '@/components/molecules/ImageBlock';
 import { PageComponentProps, ProjectLayout } from '@/types';
 import HighlightedPreBlock from '@/utils/highlighted-markdown';
 import BaseLayout from '../BaseLayout';
 
-type ComponentProps = PageComponentProps &
-    ProjectLayout & {
-        prevProject?: ProjectLayout;
-        nextProject?: ProjectLayout;
-    };
+type ComponentProps = PageComponentProps & ProjectLayout;
 
 const Component: React.FC<ComponentProps> = (props) => {
     const {
@@ -19,10 +16,16 @@ const Component: React.FC<ComponentProps> = (props) => {
         description,
         markdownContent,
         media,
-        prevProject,
-        nextProject,
         bottomSections = []
     } = props;
+
+    const markdownOptions = {
+        forceBlock: true,
+        overrides: {
+            pre: HighlightedPreBlock,
+            ImageBlock: ImageBlock
+        }
+    };
 
     return (
         <BaseLayout {...props}>
@@ -42,23 +45,13 @@ const Component: React.FC<ComponentProps> = (props) => {
                 )}
                 {markdownContent && (
                     <Markdown
-                        options={{ forceBlock: true, overrides: { pre: HighlightedPreBlock } }}
+                        options={markdownOptions}
                         className="max-w-3xl mx-auto prose sm:prose-lg"
                     >
                         {markdownContent}
                     </Markdown>
                 )}
             </article>
-            {/* {(prevProject || nextProject) && (
-                <nav className="px-4 mt-12 mb-20">
-                    <div className="grid max-w-5xl mx-auto gap-x-6 gap-y-12 sm:grid-cols-2 lg:gap-x-8">
-                        {prevProject && <ProjectNavItem project={prevProject} className={undefined} />}
-                        {nextProject && (
-                            <ProjectNavItem project={nextProject} className="sm:items-end sm:col-start-2" />
-                        )}
-                    </div>
-                </nav>
-            )} */}
             {bottomSections?.map((section, index) => {
                 return <DynamicComponent key={index} {...section} />;
             })}
@@ -68,5 +61,20 @@ const Component: React.FC<ComponentProps> = (props) => {
 export default Component;
 
 function ProjectMedia({ media }) {
-    return <DynamicComponent {...media} className={classNames('rounded-4xl', { 'w-full': media.type === 'ImageBlock' })} />;
+  if (Array.isArray(media)) {
+    return (
+      <>
+        {media.map((item, index) => (
+          <figure key={index} className="max-w-3xl mx-auto mb-10 sm:mb-14">
+            <DynamicComponent {...item} className={classNames('rounded-4xl', { 'w-full': item.type === 'ImageBlock' })} />
+          </figure>
+        ))}
+      </>
+    );
+  }
+  return (
+    <figure className="max-w-3xl mx-auto mb-10 sm:mb-14">
+      <DynamicComponent {...media} className={classNames('rounded-4xl', { 'w-full': media.type === 'ImageBlock' })} />
+    </figure>
+  );
 }
